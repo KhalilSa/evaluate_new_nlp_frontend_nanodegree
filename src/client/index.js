@@ -1,9 +1,14 @@
-import { checkForName } from './js/nameChecker'
-import { handleSubmit, testPrint } from './js/formHandler'
-import img from './images/test.png'
+import { handleSubmit } from './js/formHandler'
+import { analyzeText } from './js/apiCall'
+import './images/texticon.png'
 
-console.log(checkForName);
-testPrint('Hi');
+import './styles/resets.scss'
+import './styles/base.scss'
+import './styles/footer.scss'
+import './styles/form.scss'
+import './styles/header.scss'
 
-alert("I EXIST")
-console.log("CHANGE!!");
+export {
+    handleSubmit,
+    analyzeText
+}

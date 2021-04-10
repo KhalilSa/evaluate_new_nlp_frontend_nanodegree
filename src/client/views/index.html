@@ -3,14 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Test</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Evaluate New Nlp will help you process texts using AI">
+    <meta name="keywords" content="NLP">
+    <meta name="author" content="Khalil Sa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texessor</title>
+    <link rel="shortcut icon" href="./images/texticon.png">
 </head>
 
 <body>
 
     <header>
         <div class="">
-            Logo
+            <img src="./images/texticon.png" alt="logo" id="logo" /> Texessor
         </div>
         <div class="">
             navigation
@@ -19,9 +25,10 @@
 
     <main>
         <section>
-            <form class="" onsubmit="return handleSubmit(event)">
-                <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+            <form class="" onsubmit="return Client.handleSubmit(event)">
+                <label for="textarea">Text To Be Analyzed</label>
+                <textarea id="textarea" placeholder="Enter Your Text Here"></textarea>
+                <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
             </form>
         </section>
 
@@ -32,8 +39,19 @@
     </main>
 
     <footer>
-        <p>This is a footer</p>
+        <span>Evaluate News Project (NLP) &copy 2021</span>
+        <span class="r-ft-sp">Using meaning cloud sentiment analysis v2.1 API</span>
     </footer>
+
+    <!-- <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script> -->
 
 </body>
 
