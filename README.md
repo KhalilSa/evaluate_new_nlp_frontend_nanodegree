@@ -33,5 +33,6 @@ You have to sign up for an API key [here](https://www.meaningcloud.com/developer
 
 ### Run The Project
 cd into The project directory then use:
-`npm run build-prod`
-`npm run start`
+
+- `npm run build-prod`
+- `npm run start`
