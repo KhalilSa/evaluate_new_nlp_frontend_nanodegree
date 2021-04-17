@@ -1,5 +1,5 @@
 import { handleSubmit } from './js/formHandler'
-import { analyzeText } from './js/apiCall'
+import { updateUI } from './js/updateUI'
 import './images/texticon.png'
 
 import './styles/resets.scss'
@@ -10,5 +10,5 @@ import './styles/header.scss'
 
 export {
     handleSubmit,
-    analyzeText
+    updateUI
 }
