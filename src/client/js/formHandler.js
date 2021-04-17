@@ -3,10 +3,9 @@ async function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('textarea').value
-    console.log(formText)
     if (formText) {
-        let res = await postData('http://localhost:8081/text', { text: formText })
-            .then(Client.updateUI())
+        postData('http://localhost:8081/text', { text: formText })
+            .then(data => Client.updateUI(data))
             .catch((e) => {
                 console.log(`Error: ${e}`)
             })
@@ -24,14 +23,14 @@ async function postData(url = '', dataObj = {}) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(dataObj),
-    });
+    })
     try {
-        const newData = await response.json();
-        console.log(newData);
-        return newData;
+        const newData = await response.json()
+        console.log(newData)
+        return newData
     } catch (e) {
-        console.log('something went wrong.\n' + error);
+        console.log('something went wrong.\n' + e)
     }
-};
+}
 
 export { handleSubmit }

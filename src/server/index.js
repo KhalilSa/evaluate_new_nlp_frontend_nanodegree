@@ -3,9 +3,9 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch')
-const dotenv = require('dotenv');
+const dotenv = require('dotenv')
 
-dotenv.config();
+dotenv.config()
 const app = express()
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -24,9 +24,17 @@ app.listen(port, function() {
     console.log(`Example app listening on port ${port}!`)
 })
 
-projectData = {}
-app.post('/text', (req, res) => {
-    analyzeText(req.body.text)
+app.post('/text', async(req, res) => {
+    await analyzeText(req.body.text).then(data => {
+        const projectData = {
+            agreement: data.agreement,
+            confidence: data.confidence,
+            subjectivity: data.subjectivity,
+            irony: data.irony,
+            scoreTag: data.score_tag
+        }
+        res.send(projectData)
+    })
 })
 
 app.get('/analyzedtxt', (req, res) => {
@@ -42,15 +50,10 @@ async function analyzeText(txt, key = process.env.API_KEY, lang = 'en') {
         })
     try {
         const data = await res.json()
-        if (Object.keys(data).length != 0) {
-            projectData.agreement = data.agreement
-            projectData.confidence = data.confidence
-            projectData.subjectivity = data.subjectivity
-            projectData.irony = data.irony
-            projectData.scoreTag = data.score_tag
-        }
         return data
     } catch (e) {
         console.log(`ERROR: ${e}`)
     }
 }
+
+module.exports = app
