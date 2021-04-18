@@ -3,14 +3,14 @@ async function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('textarea').value
-    if (formText) {
+    if (Client.validURL(formText)) {
         postData('http://localhost:8081/text', { text: formText })
             .then(data => Client.updateUI(data))
             .catch((e) => {
                 console.log(`Error: ${e}`)
             })
     } else {
-        alert("You need to enter some text before submiting")
+        alert("You need to enter valid URL")
     }
 }
 // async post function
